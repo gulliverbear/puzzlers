@@ -16,8 +16,14 @@ class Node(object):
     
 def combine(left_child, right_child):
     '''
-    to do
+    creates a new node that is parent of the 2 children, returns the parent node
     '''
+    left_child.side = 0 # interesting you can make a new object variable without it being in init...
+    right_child.side = 1
+    parent = Node('.' + left_child.name + right_child.name, left_child.value + right_child.value)
+    left_child.parent = parent
+    right_child.parent = parent
+    return parent
     
 def trace_path(leaf):
     '''
